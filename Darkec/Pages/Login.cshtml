@@ -2,3 +2,35 @@
 @model Darkec.Pages.LoginModel
 @{
 }
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Something</title>
+
+</head>
+<body style="background-color:powderblue;">
+    <h2>Pls do work</h2>
+    @Model.Message
+    <form method="post" asp-page="Index">
+        <table>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" asp-for="@Model.Username" /></td>
+            </tr>
+            <tr>
+                <td> Password</td>
+                <td><input type="password" asp-for="@Model.Password" /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Login" /></td>
+                <p>If this is not working I do not take account for the outcome. Contact Toni, he'll know what to do</p>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
