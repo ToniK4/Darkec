@@ -9,6 +9,7 @@ namespace Darkec.Pages
 {
     public class LoginModel : PageModel
     {
+        public int woah = 3;
         public void OnGet()
         {
         }
