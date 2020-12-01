@@ -12,6 +12,7 @@ namespace Darkec.Pages
         public int woah = 3;
         public void OnGet()
         {
+            Console.WriteLine("skjsdfhjsjhfdj");
         }
     }
 }
