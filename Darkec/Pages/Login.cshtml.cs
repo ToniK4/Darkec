@@ -13,6 +13,7 @@ namespace Darkec.Pages
         public void OnGet()
         {
             Console.WriteLine("skjsdfhjsjhfdj");
+            Console.WriteLine("123");
         }
     }
 }
