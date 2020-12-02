@@ -5,7 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <Folder Include="Helpers\" />
+    <Folder Include="MockData\" />
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
+    <Folder Include="wwwroot\Data\" />
+    <Folder Include="wwwroot\Images\Trucks\" />
+    <Folder Include="wwwroot\Images\Apartments\" />
+    <Folder Include="wwwroot\Images\Boats\" />
   </ItemGroup>
 
 </Project>
