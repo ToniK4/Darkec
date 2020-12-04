@@ -6,11 +6,16 @@
 
   <ItemGroup>
     <Folder Include="Helpers\" />
-    <Folder Include="MockData\" />
+    <Folder Include="Pages\Trucks\" />
+    <Folder Include="Pages\Boats\" />
     <Folder Include="wwwroot\Data\" />
     <Folder Include="wwwroot\Images\Trucks\" />
     <Folder Include="wwwroot\Images\Apartments\" />
     <Folder Include="wwwroot\Images\Boats\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
 </Project>
