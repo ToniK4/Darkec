@@ -1,4 +1,79 @@
 ﻿@page
 @model Darkec.Pages.Apartments.GetAllApartmentsModel
 @{
+    ViewData["Title"] = "GetAllApartments";
 }
+<h1>Apartments</h1>
+
+<p>
+    <a asp-page="CreateApartment">Create New Apartment</a>
+</p>
+
+<form>
+    <p>
+        Search: <input type="text" asp-for="FilterCriteria" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Image
+        </th>
+        <th>
+
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Apartments)
+    {
+        <tr>
+            <td>
+                @item.Value.Id
+            </td>
+            <td>
+                @item.Value.Name
+            </td>
+            <td>
+                @item.Value.Description
+            </td>
+            <td>
+                @item.Value.Price
+            </td>
+            <td>
+                <img src="~/Images/Apartments/@item.Value.ImageName" width="60" height="70">
+            </td>
+            <td>
+                <p>
+                    <a class="btn btn-primary" asp-page="UpdateApartment" asp-route-id="@item.Key">Edit</a>
+                </p>
+            </td>
+            <td>
+                <p>
+                    <a class="btn btn-danger" asp-page="DeleteApartment" asp-route-id="@item.Key">Delete</a>
+                </p>
+            </td>
+        </tr>
+    }
+    </tbody>
+
+</table>

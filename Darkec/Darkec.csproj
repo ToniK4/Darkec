@@ -5,10 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\" />
     <Folder Include="Pages\Trucks\" />
     <Folder Include="Pages\Boats\" />
-    <Folder Include="wwwroot\Data\" />
+    <Folder Include="Services\Trucks\" />
+    <Folder Include="Services\Boats\" />
     <Folder Include="wwwroot\Images\Trucks\" />
     <Folder Include="wwwroot\Images\Apartments\" />
     <Folder Include="wwwroot\Images\Boats\" />
