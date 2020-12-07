@@ -1,10 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="wwwroot\css\StyleSheet.css" />
+
     <Folder Include="Pages\Trucks\" />
     <Folder Include="Pages\Boats\" />
     <Folder Include="Services\Trucks\" />
@@ -16,6 +20,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+
   </ItemGroup>
 
 </Project>
