@@ -12,6 +12,7 @@
     <link href="css/StyleSheet.css" rel="stylesheet" />
     @*<link rel="stylesheet" href="~/css/site.css" />*@
 </head>
+
 <div class="text-center" class="background">
     <h1 class="display-4">Log In</h1>
 </div>
@@ -29,8 +30,8 @@
 
             <!-- Login Form -->
             <form>
-                <input type="text" id="login" class="fadeIn second" name="login" placeholder="username">
-                <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+                <input type="text" asp-for="@Model.Username" id="login" class="fadeIn second" name="login" placeholder="username">
+                <input type="text" asp-for="@Model.Password" id="password" class="fadeIn third" name="login" placeholder="password">
                 <input type="submit" class="fadeIn fourth" value="Log In">
             </form>
 
@@ -44,6 +45,5 @@
 </body>
 
 </html>
-
 
 

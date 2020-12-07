@@ -8,6 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Darkec.Models;
+using Darkec.Services;
+using Darkec.Services.Apartments;
 
 namespace Darkec
 {
@@ -24,6 +27,8 @@ namespace Darkec
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddSingleton<IObjectRepository<int, Apartment>, ApartmentRepository>();
+            services.AddTransient<JsonFileApartmentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

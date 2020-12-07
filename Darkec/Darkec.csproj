@@ -5,8 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+
     <None Include="..\.editorconfig" Link=".editorconfig" />
     <None Include="wwwroot\css\StyleSheet.css" />
+
+    <Folder Include="Pages\Trucks\" />
+    <Folder Include="Pages\Boats\" />
+    <Folder Include="Services\Trucks\" />
+    <Folder Include="Services\Boats\" />
+    <Folder Include="wwwroot\Images\Trucks\" />
+    <Folder Include="wwwroot\Images\Apartments\" />
+    <Folder Include="wwwroot\Images\Boats\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+
   </ItemGroup>
 
 </Project>
