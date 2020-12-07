@@ -9,19 +9,19 @@
     <a asp-page="CreateApartment">Create New Apartment</a>
 </p>
 
-<form>
-    <p>
-        Search: <input type="text" asp-for="FilterCriteria" />
-        <input type="submit" value="Filter" />
-    </p>
-</form>
+<div class="search_container">
+    <div class="search_title">
+        <input class="search_input" type="text" asp-for="FilterCriteria" placeholder="Search"/> @*submit button not implemented yet*@
+        
+    </div>
+</div>
 
 
 <table class="table">
     <thead>
     <tr>
         <th>
-            Id
+            Image
         </th>
         <th>
             Name
@@ -32,9 +32,7 @@
         <th>
             Price
         </th>
-        <th>
-            Image
-        </th>
+        
         <th>
 
         </th>
@@ -48,7 +46,7 @@
     {
         <tr>
             <td>
-                @item.Value.Id
+                <img src="~/Images/Apartments/@item.Value.ImageName" width="180" height="150">
             </td>
             <td>
                 @item.Value.Name
@@ -59,9 +57,7 @@
             <td>
                 @item.Value.Price
             </td>
-            <td>
-                <img src="~/Images/Apartments/@item.Value.ImageName" width="60" height="70">
-            </td>
+            
             <td>
                 <p>
                     <a class="btn btn-primary" asp-page="UpdateApartment" asp-route-id="@item.Key">Edit</a>
