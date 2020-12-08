@@ -1,0 +1,66 @@
+﻿@page
+@model Darkec.Pages.Boats.CreateBoatModel
+@{
+    ViewData["Title"] = "CreateBoat";
+}
+
+<h1>Create Boat</h1>
+
+<form method="post">
+
+    <div class="form-group">
+        <label asp-for="@Model.Boat.Id" class="control-label"> Id </label>
+        <input asp-for="@Model.Boat.Id" class="form-control" />
+        <span asp-validation-for="@Model.Boat.Id" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Boat.RegistrationNumber" class="control-label"> Registration Number </label>
+        <input asp-for="@Model.Boat.RegistrationNumber" class="form-control" />
+        <span asp-validation-for="@Model.Boat.RegistrationNumber" class="text-danger"></span>
+
+    </div>
+    @*<div class="form-group"> Just need to implement the enum dropdown list
+        <label asp-for="@Model.Boat.LicenseCategory" class="control-label"> License Category </label>
+        <input asp-for="@Model.Boat.LicenseCategory" class="form-control" />
+        <span asp-validation-for="@Model.Boat.LicenseCategory" class="text-danger"></span>
+    </div>*@
+    <div class="form-group">
+        <label asp-for="@Model.Boat.SeatingCapacity" class="control-label"> Seating Capacity </label>
+        <input asp-for="@Model.Boat.SeatingCapacity" class="form-control" />
+        <span asp-validation-for="@Model.Boat.SeatingCapacity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Boat.TopSpeed" class="control-label"> Top Speed </label>
+        <input asp-for="@Model.Boat.TopSpeed" class="form-control" />
+        <span asp-validation-for="@Model.Boat.TopSpeed" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Boat.EngineHorsepower" class="control-label"> Engine Horsepower </label>
+        <input asp-for="@Model.Boat.EngineHorsepower" class="form-control" />
+        <span asp-validation-for="@Model.Boat.EngineHorsepower" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Boat.Length" class="control-label"> Length </label>
+        <input asp-for="@Model.Boat.Length" class="form-control" />
+        <span asp-validation-for="@Model.Boat.Length" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Boat.Weight" class="control-label"> Weight </label>
+        <input asp-for="@Model.Boat.Weight" class="form-control" />
+        <span asp-validation-for="@Model.Boat.Weight" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Boat.Price" class="control-label">Price</label>
+        <input asp-for="@Model.Boat.Price" class="form-control" />
+        <span asp-validation-for="@Model.Boat.Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Boat.ImageName" class="control-label"> Image Name </label>
+        <input asp-for="@Model.Boat.ImageName" class="form-control" />
+        <span asp-validation-for="@Model.Boat.ImageName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>

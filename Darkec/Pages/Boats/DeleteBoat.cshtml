@@ -1,0 +1,77 @@
+﻿@page
+@model Darkec.Pages.Boats.DeleteBoatModel
+@{
+    ViewData["Title"] = "DeleteBoat";
+}
+
+<h1>Delete Boat</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Image
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                @Model.Boat.Id
+            </td>
+            <td>
+                @Model.Boat.RegistrationNumber
+            </td>
+            @*<td>
+            @Model.Boat.LicenseCategory
+        </td>*@
+            <td>
+                @Model.Boat.SeatingCapacity
+            </td>
+            <td>
+                @Model.Boat.TopSpeed
+            </td>
+            <td>
+                @Model.Boat.EngineHorsepower
+            </td>
+            <td>
+                @Model.Boat.Length
+            </td>
+            <td>
+                @Model.Boat.Weight
+            </td>
+            <td>
+                @Model.Boat.Price
+            </td>
+            <td>
+                <img src="~/Images/Boats/@Model.Boat.ImageName" width="60" height="70">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<form method="post">
+    <div class="form-group">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </div>
+    <div class="alert alert-danger" role="alert">
+        Are you sure? This is permanent.
+    </div>
+</form>
+<br />
+<div>
+    <a class="btn btn-primary" asp-page="GetAllBoats">I changed my mind</a>
+</div>

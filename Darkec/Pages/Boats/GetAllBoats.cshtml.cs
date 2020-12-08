@@ -8,27 +8,27 @@ using Darkec.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Darkec.Pages.Apartments
+namespace Darkec.Pages.Boats
 {
-    public class GetAllApartmentsModel : PageModel
+    public class GetAllBoatsModel : PageModel
     {
-        private IObjectRepository<int, Apartment> repo;
+        private IObjectRepository<int, Boat> repo;
 
-        public GetAllApartmentsModel(IObjectRepository<int,Apartment> repository)
+        public GetAllBoatsModel(IObjectRepository<int,Boat> repository)
         {
             repo = repository;
         }
 
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }
-        public Dictionary<int, Apartment> Apartments { get; private set; }
+        public Dictionary<int, Boat> Boats { get; private set; }
 
         public IActionResult OnGet()
         {
-            Apartments = repo.GetAllObjects();
+            Boats = repo.GetAllObjects();
             if (!string.IsNullOrEmpty(FilterCriteria))
             {
-                Apartments = repo.FilterObjects(FilterCriteria);
+                Boats = repo.FilterObjects(FilterCriteria);
             }
 
             return Page();

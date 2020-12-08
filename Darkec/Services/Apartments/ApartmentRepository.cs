@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Darkec.Helpers;
 using Darkec.Models;
 
 namespace Darkec.Services.Apartments
 {
     public class ApartmentRepository : IObjectRepository<int, Apartment>
     {
+        private string JsonFileName = @".\wwwroot\Data\JsonApartments.json";
         private Dictionary<int, Apartment> apartments;
-        private JsonFileApartmentService JsonFileApartmentService { get; set; }
-        public ApartmentRepository(JsonFileApartmentService jsonFileItemService)
+        public ApartmentRepository()
         {
-            JsonFileApartmentService = jsonFileItemService;
-            apartments = JsonFileApartmentService.GetJsonApartments();
+            apartments = JsonFileReader<int, Apartment>.ReadJson(JsonFileName);
 
             //Uncomment this line of code if you want to use mock data
             //apartments = MockData.MockApartments.Instance.GetAllApartments();
+
+            if (apartments == null)
+            {
+                apartments = new Dictionary<int, Apartment>();
+            }
         }
 
         public Dictionary<int, Apartment> GetAllObjects()
@@ -29,7 +34,7 @@ namespace Darkec.Services.Apartments
             if (!(apartments.Keys.Contains(apartment.Id)))
             {
                 apartments.Add(apartment.Id, apartment);
-                JsonFileApartmentService.SaveJsonApartment(apartments);
+                JsonFileWriter<int, Apartment>.WriteToJson(apartments, JsonFileName);
             }
         }
 
@@ -43,7 +48,7 @@ namespace Darkec.Services.Apartments
             if (apartment != null)
             {
                 apartments[apartment.Id] = apartment;
-                JsonFileApartmentService.SaveJsonApartment(apartments);
+                JsonFileWriter<int, Apartment>.WriteToJson(apartments, JsonFileName);
             }
         }
 
@@ -51,8 +56,8 @@ namespace Darkec.Services.Apartments
         {
             if (apartment != null)
             {
-                apartments.Remove(apartment.Id, out apartment);
-                JsonFileApartmentService.SaveJsonApartment(apartments);
+                apartments.Remove(apartment.Id);
+                JsonFileWriter<int, Apartment>.WriteToJson(apartments, JsonFileName);
             }
         }
 
