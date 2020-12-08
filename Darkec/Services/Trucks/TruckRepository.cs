@@ -29,11 +29,9 @@ namespace Darkec.Services.Trucks
 
         public void AddObject(Truck truck)
         {
-            if (!(trucks.Keys.Contains(truck.Id)))
-            {
-                trucks.Add(truck.Id, truck);
-                JsonFileWriter<int, Truck>.WriteToJson(trucks, JsonFileName);
-            }
+            AutoIncrementId(truck);
+            trucks.Add(truck.Id, truck);
+            JsonFileWriter<int, Truck>.WriteToJson(trucks, JsonFileName);
         }
 
         public Truck GetObject(int id)
@@ -72,6 +70,24 @@ namespace Darkec.Services.Trucks
                 }
             }
             return filteredTrucks;
+        }
+        public Truck AutoIncrementId(Truck truck)
+        {
+            List<int> truckId = new List<int>();
+            foreach (var Truck in trucks.Values)
+            {
+                truckId.Add(Truck.Id);
+            }
+            if (truckId.Count != 0)
+            {
+                int increment = truckId.Max() + 1;
+                truck.Id = increment;
+            }
+            else
+            {
+                truck.Id = 1;
+            }
+            return truck;
         }
     }
 }

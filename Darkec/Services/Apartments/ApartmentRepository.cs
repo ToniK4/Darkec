@@ -31,11 +31,10 @@ namespace Darkec.Services.Apartments
 
         public void AddObject(Apartment apartment)
         {
-            if (!(apartments.Keys.Contains(apartment.Id)))
-            {
-                apartments.Add(apartment.Id, apartment);
-                JsonFileWriter<int, Apartment>.WriteToJson(apartments, JsonFileName);
-            }
+            AutoIncrementId(apartment);
+            apartments.Add(apartment.Id, apartment);
+            JsonFileWriter<int, Apartment>.WriteToJson(apartments, JsonFileName);
+
         }
 
         public Apartment GetObject(int id)
@@ -74,6 +73,24 @@ namespace Darkec.Services.Apartments
                 }
             }
             return filteredApartments;
+        }
+        public Apartment AutoIncrementId(Apartment apartment)
+        {
+            List<int> apartmentId = new List<int>();
+            foreach (var Apartment in apartments.Values)
+            {
+                apartmentId.Add(Apartment.Id);
+            }
+            if (apartmentId.Count != 0)
+            {
+                int increment = apartmentId.Max() + 1;
+                apartment.Id = increment;
+            }
+            else
+            {
+                apartment.Id = 1;
+            }
+            return apartment;
         }
     }
 }

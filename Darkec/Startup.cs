@@ -13,6 +13,7 @@ using Darkec.Services;
 using Darkec.Services.Apartments;
 using Darkec.Services.Boats;
 using Darkec.Services.Trucks;
+using Darkec.Services.Users;
 
 namespace Darkec
 {
@@ -32,6 +33,7 @@ namespace Darkec
             services.AddSingleton<IObjectRepository<int, Apartment>, ApartmentRepository>();
             services.AddSingleton<IObjectRepository<int, Boat>, BoatRepository>();
             services.AddSingleton<IObjectRepository<int, Truck>, TruckRepository>();
+            services.AddSingleton<IObjectRepository<int, User>, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

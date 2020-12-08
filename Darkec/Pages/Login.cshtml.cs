@@ -5,29 +5,43 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Darkec.Models;
+using Darkec.Services;
+using Microsoft.AspNetCore.Identity;
 
 
 namespace Darkec.Pages
 {
     public class LoginModel : PageModel
     {
-        public string Username { get; set; }
+        [BindProperty]
+        public string Email { get; set; }
+        [BindProperty]
         public string Password { get; set; }
-        public string Message { get; set; }
-    
+
+        private IObjectRepository<int, User> repo;
+
+        public LoginModel(IObjectRepository<int, User> repository)
+        {
+            repo = repository;
+        }
+
+        public IActionResult OnGet()
+        {
+            return Page();
+        }
+
         public IActionResult OnPost()
         {
-            if (Username.Equals("Toni") && Password.Equals("NoBranchesPLS"))
+            foreach (var user in repo.GetAllObjects().Values)
             {
-
-                return RedirectToPage();
-
+                if (user.Email == Email && user.Password == Password)
+                {
+                    LoginService.CurrentUser = user;
+                    return RedirectToPage("Index");
+                }
             }
-            else
-            {
-                Message = "Invalid";
-                return Page();
-            }
+            return Page();
         }
     }
 }

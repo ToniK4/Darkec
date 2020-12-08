@@ -29,11 +29,9 @@ namespace Darkec.Services.Boats
 
         public void AddObject(Boat boat)
         {
-            if (!(boats.Keys.Contains(boat.Id)))
-            {
-                boats.Add(boat.Id, boat);
-                JsonFileWriter<int, Boat>.WriteToJson(boats, JsonFileName);
-            }
+            AutoIncrementId(boat);
+            boats.Add(boat.Id, boat);
+            JsonFileWriter<int, Boat>.WriteToJson(boats, JsonFileName);
         }
 
         public Boat GetObject(int id)
@@ -72,6 +70,24 @@ namespace Darkec.Services.Boats
                 }
             }
             return filteredBoats;
+        }
+        public Boat AutoIncrementId(Boat boat)
+        {
+            List<int> boatId = new List<int>();
+            foreach (var Boat in boats.Values)
+            {
+                boatId.Add(Boat.Id);
+            }
+            if (boatId.Count != 0)
+            {
+                int increment = boatId.Max() + 1;
+                boat.Id = increment;
+            }
+            else
+            {
+                boat.Id = 1;
+            }
+            return boat;
         }
     }
 }
