@@ -32,13 +32,16 @@
             </div>
 
             <!-- Login Form -->
-            <form>
-                <input type="text" asp-for="@Model.Username" id="login" class="fadeIn second" name="login" placeholder="username">
-                <input type="text" asp-for="@Model.Password" id="password" class="fadeIn third" name="login" placeholder="password">
-                <input type="submit" class="fadeIn fourth" value="Log In">
+            <form method="post">
+                <div class="form-group">
+                    <input type="text" asp-for="@Model.Email" id="login" class="fadeIn second" placeholder="e-mail">
+                    <input type="text" asp-for="@Model.Password" id="password" class="fadeIn third" placeholder="password">
+                    <input type="submit" class="fadeIn fourth" value="Log In">
+                </div>
+                
             </form>
 
-            <!-- Remind Passowrd -->
+            <!-- Remind Password -->
             <div id="formFooter">
                 <a class="underlineHover" href="#">Forgot Password?</a>
             </div>

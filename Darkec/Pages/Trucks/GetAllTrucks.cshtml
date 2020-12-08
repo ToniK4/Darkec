@@ -1,0 +1,75 @@
+﻿@page
+@model Darkec.Pages.Trucks.GetAllTrucksModel
+@{
+    ViewData["Title"] = "GetAllTrucks";
+}
+<h1>Trucks</h1>
+
+<p>
+    <a asp-page="CreateTruck">Create New Truck</a>
+</p>
+
+<div class="search_container">
+    <div class="search_title">
+        <input class="search_input" type="text" asp-for="FilterCriteria" placeholder="Search" /> @*submit button not implemented yet*@
+
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Image
+            </th>
+            <th>
+                Registration Number
+            </th>
+            <th>
+                Carrying Weight
+            </th>
+            <th>
+                Height
+            </th>
+
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.Trucks)
+        {
+            <tr>
+                <td>
+                    <img src="~/Images/Trucks/@item.Value.ImageName" width="180" height="150">
+                </td>
+                <td>
+                    @item.Value.RegistrationNumber
+                </td>
+                <td>
+                    @item.Value.CarryingWeight
+                </td>
+                <td>
+                    @item.Value.Height
+                </td>
+
+                <td>
+                    <p>
+                        <a class="btn btn-primary" asp-page="UpdateTruck" asp-route-id="@item.Key">Edit</a>
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        <a class="btn btn-danger" asp-page="DeleteTruck" asp-route-id="@item.Key">Delete</a>
+                    </p>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
