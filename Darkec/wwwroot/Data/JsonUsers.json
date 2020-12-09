@@ -1,0 +1,12 @@
+{
+  "1": {
+    "Id": 1,
+    "Name": "bdbd",
+    "Email": "gah",
+    "Password": "AQAAAAEAACcQAAAAEFGLMvedFsXwPjKsvT4AtQxllIlkjCKLO+O39egOBpS1tIt+jydu3JJI2vfJVPlapw==",
+    "Address": "dbbd",
+    "CardNumber": "43",
+    "TelephoneNumber": "443",
+    "IsAdmin": true
+  }
+}

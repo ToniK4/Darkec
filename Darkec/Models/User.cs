@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Darkec.Models
 {
-    public class Customer
+    public class User
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -14,5 +14,6 @@ namespace Darkec.Models
         public string Address { get; set; }
         public string CardNumber { get; set; }
         public string TelephoneNumber { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

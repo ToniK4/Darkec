@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Darkec.Models
 {
-    public class Boats
+    public class Boat
     {
         [Range(1,100)]
         public int Id { get; set; }
@@ -14,10 +14,9 @@ namespace Darkec.Models
         [Range(0,20)]
         [Required]
         public string SeatingCapacity { get; set; }
-        public enum LicenseCategory { A,B,C,M}
+        public enum LicenseCategory { A, B, C, M }
         [Range(0,200)]
-        [StringLength(6, MinimumLength = 4)] //minimum length is 4, assuming 0kmh. maximum length is 6 assuming 200kmh = 6characters
-        public string TopSpeed { get; set; }
+        public int TopSpeed { get; set; }
         [Range(0,10)]
         public double Length { get; set; }
         [Range(0,10000)]

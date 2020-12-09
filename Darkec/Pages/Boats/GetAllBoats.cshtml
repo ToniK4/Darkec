@@ -1,6 +1,6 @@
 ﻿@page
 @using Darkec.Services
-@model Darkec.Pages.Apartments.GetAllApartmentsModel
+@model Darkec.Pages.Boats.GetAllBoatsModel
 @{
     bool isAdmin = false;
 
@@ -8,15 +8,15 @@
     {
         isAdmin = LoginService.CurrentUser.IsAdmin;
     }
-    ViewData["Title"] = "GetAllApartments";
+    ViewData["Title"] = "GetAllBoats";
 }
-<h1>Apartments</h1>
+<h1>Boats</h1>
 
 <p>
     @{
         if (isAdmin == true)
         {
-            <a class="btn btn-primary" asp-page="CreateApartment">Create New Apartment</a>
+            <a asp-page="CreateBoat">Create New Boat</a>
         }
     }
 </p>
@@ -28,7 +28,6 @@
     </div>
 </div>
 
-
 <table class="table">
     <thead>
         <tr>
@@ -36,10 +35,10 @@
                 Image
             </th>
             <th>
-                Name
+                Registration Number
             </th>
             <th>
-                Description
+                Seating Capacity
             </th>
             <th>
                 Price
@@ -54,17 +53,18 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Apartments)
+
+        @foreach (var item in Model.Boats)
         {
             <tr>
                 <td>
-                    <img src="~/Images/Apartments/@item.Value.ImageName" width="180" height="150">
+                    <img src="~/Images/Boats/@item.Value.ImageName" width="180" height="150">
                 </td>
                 <td>
-                    @item.Value.Name
+                    @item.Value.RegistrationNumber
                 </td>
                 <td>
-                    @item.Value.Description
+                    @item.Value.SeatingCapacity
                 </td>
                 <td>
                     @item.Value.Price EUR
@@ -75,7 +75,7 @@
                         @{
                             if (isAdmin == true)
                             {
-                                <a class="btn btn-primary" asp-page="UpdateApartment" asp-route-id="@item.Key">Edit</a>
+                                <a class="btn btn-primary" asp-page="UpdateBoat" asp-route-id="@item.Key">Edit</a>
                             }
                         }
                     </p>
@@ -85,7 +85,7 @@
                         @{
                             if (isAdmin == true)
                             {
-                                <a class="btn btn-danger" asp-page="DeleteApartment" asp-route-id="@item.Key">Delete</a>
+                                <a class="btn btn-danger" asp-page="DeleteBoat" asp-route-id="@item.Key">Delete</a>
                             }
                         }
                     </p>

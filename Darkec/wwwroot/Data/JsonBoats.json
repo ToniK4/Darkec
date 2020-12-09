@@ -1,0 +1,14 @@
+{
+  "3": {
+    "Id": 3,
+    "SeatingCapacity": "4",
+    "TopSpeed": 30,
+    "Length": 5.0,
+    "Weight": 7,
+    "RegistrationNumber": "972VD",
+    "EngineHorsepower": 70,
+    "Price": 200.0,
+    "ImageName": "bordo_70hp.jpg",
+    "Availability": false
+  }
+}
