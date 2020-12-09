@@ -1,12 +1,24 @@
 ﻿@page
+@using Darkec.Services
 @model Darkec.Pages.Trucks.GetAllTrucksModel
 @{
+    bool isAdmin = false;
+
+    if (LoginService.CurrentUser != null)
+    {
+        isAdmin = LoginService.CurrentUser.IsAdmin;
+    }
     ViewData["Title"] = "GetAllTrucks";
 }
 <h1>Trucks</h1>
 
 <p>
-    <a asp-page="CreateTruck">Create New Truck</a>
+    @{
+        if (isAdmin == true)
+        {
+            <a asp-page="CreateTruck">Create New Truck</a>
+        }
+    }
 </p>
 
 <div class="search_container">
@@ -60,12 +72,22 @@
 
                 <td>
                     <p>
-                        <a class="btn btn-primary" asp-page="UpdateTruck" asp-route-id="@item.Key">Edit</a>
+                        @{
+                            if (isAdmin == true)
+                            {
+                                <a class="btn btn-primary" asp-page="UpdateTruck" asp-route-id="@item.Key">Edit</a>
+                            }
+                        }
                     </p>
                 </td>
                 <td>
                     <p>
-                        <a class="btn btn-danger" asp-page="DeleteTruck" asp-route-id="@item.Key">Delete</a>
+                        @{
+                            if (isAdmin == true)
+                            {
+                                <a class="btn btn-danger" asp-page="DeleteTruck" asp-route-id="@item.Key">Delete</a>
+                            }
+                        }
                     </p>
                 </td>
             </tr>

@@ -14,5 +14,6 @@ namespace Darkec.Models
         public string Address { get; set; }
         public string CardNumber { get; set; }
         public string TelephoneNumber { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

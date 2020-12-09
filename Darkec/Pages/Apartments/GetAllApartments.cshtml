@@ -1,75 +1,97 @@
 ﻿@page
+@using Darkec.Services
 @model Darkec.Pages.Apartments.GetAllApartmentsModel
 @{
+    bool isAdmin = false;
+
+    if (LoginService.CurrentUser != null)
+    {
+        isAdmin = LoginService.CurrentUser.IsAdmin;
+    }
     ViewData["Title"] = "GetAllApartments";
 }
 <h1>Apartments</h1>
 
 <p>
-    <a asp-page="CreateApartment">Create New Apartment</a>
+    @{
+        if (isAdmin == true)
+        {
+            <a class="btn btn-primary" asp-page="CreateApartment">Create New Apartment</a>
+        }
+    }
 </p>
 
 <div class="search_container">
     <div class="search_title">
-        <input class="search_input" type="text" asp-for="FilterCriteria" placeholder="Search"/> @*submit button not implemented yet*@
-        
+        <input class="search_input" type="text" asp-for="FilterCriteria" placeholder="Search" /> @*submit button not implemented yet*@
+
     </div>
 </div>
 
 
 <table class="table">
     <thead>
-    <tr>
-        <th>
-            Image
-        </th>
-        <th>
-            Name
-        </th>
-        <th>
-            Description
-        </th>
-        <th>
-            Price
-        </th>
-        
-        <th>
+        <tr>
+            <th>
+                Image
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
 
-        </th>
-        <th>
+            <th>
 
-        </th>
-    </tr>
+            </th>
+            <th>
+
+            </th>
+        </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.Apartments)
-    {
-        <tr>
-            <td>
-                <img src="~/Images/Apartments/@item.Value.ImageName" width="180" height="150">
-            </td>
-            <td>
-                @item.Value.Name
-            </td>
-            <td>
-                @item.Value.Description
-            </td>
-            <td>
-                @item.Value.Price EUR
-            </td>
-            
-            <td>
-                <p>
-                    <a class="btn btn-primary" asp-page="UpdateApartment" asp-route-id="@item.Key">Edit</a>
-                </p>
-            </td>
-            <td>
-                <p>
-                    <a class="btn btn-danger" asp-page="DeleteApartment" asp-route-id="@item.Key">Delete</a>
-                </p>
-            </td>
-        </tr>
-    }
+        @foreach (var item in Model.Apartments)
+        {
+            <tr>
+                <td>
+                    <img src="~/Images/Apartments/@item.Value.ImageName" width="180" height="150">
+                </td>
+                <td>
+                    @item.Value.Name
+                </td>
+                <td>
+                    @item.Value.Description
+                </td>
+                <td>
+                    @item.Value.Price EUR
+                </td>
+
+                <td>
+                    <p>
+                        @{
+                            if (isAdmin == true)
+                            {
+                                <a class="btn btn-primary" asp-page="UpdateApartment" asp-route-id="@item.Key">Edit</a>
+                            }
+                        }
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        @{
+                            if (isAdmin == true)
+                            {
+                                <a class="btn btn-danger" asp-page="DeleteApartment" asp-route-id="@item.Key">Delete</a>
+                            }
+                        }
+                    </p>
+                </td>
+            </tr>
+        }
     </tbody>
 
 </table>

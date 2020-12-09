@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Darkec.Helpers;
 using Darkec.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Darkec.Services.Users
 {
@@ -30,6 +31,7 @@ namespace Darkec.Services.Users
         public void AddObject(User user)
         {
             AutoIncrementId(user);
+            user.Password = PasswordHash(user.Email, user.Password);
             users.Add(user.Id, user);
             JsonFileWriter<int, User>.WriteToJson(users, JsonFileName);
         }
@@ -43,6 +45,7 @@ namespace Darkec.Services.Users
         {
             if (user != null)
             {
+                user.Password = PasswordHash(user.Email, user.Password);
                 users[user.Id] = user;
                 JsonFileWriter<int, User>.WriteToJson(users, JsonFileName);
             }
@@ -88,6 +91,32 @@ namespace Darkec.Services.Users
                 user.Id = 1;
             }
             return user;
+        }
+
+        public string PasswordHash(string userName, string password)
+        {
+            PasswordHasher<string> pw = new PasswordHasher<string>();
+            string passwordHashed = pw.HashPassword(userName, password);
+            return passwordHashed;
+        }
+        public bool CheckPassword(string email, string password)
+        {
+            bool loggedIn = false;
+            foreach (var v in users.Values)
+            {
+                if (v.Email == email)
+                {
+                    string jsonPassword = v.Password;
+                    PasswordHasher<string> pw = new PasswordHasher<string>();
+                    var verificationResult = pw.VerifyHashedPassword(email, jsonPassword, password);
+                    if (verificationResult == PasswordVerificationResult.Success)
+                        loggedIn = true;
+                    else
+                        loggedIn = false;
+                    return loggedIn;
+                }
+            }
+            return loggedIn;
         }
     }
 }

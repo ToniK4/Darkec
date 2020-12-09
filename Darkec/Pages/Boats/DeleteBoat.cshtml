@@ -1,6 +1,13 @@
 ﻿@page
+@using Darkec.Services
 @model Darkec.Pages.Boats.DeleteBoatModel
 @{
+    bool isAdmin = false;
+
+    if (LoginService.CurrentUser != null)
+    {
+        isAdmin = LoginService.CurrentUser.IsAdmin;
+    }
     ViewData["Title"] = "DeleteBoat";
 }
 
@@ -36,8 +43,8 @@
                 @Model.Boat.RegistrationNumber
             </td>
             @*<td>
-            @Model.Boat.LicenseCategory
-        </td>*@
+                    @Model.Boat.LicenseCategory
+                </td>*@
             <td>
                 @Model.Boat.SeatingCapacity
             </td>
@@ -64,12 +71,21 @@
 </table>
 
 <form method="post">
-    <div class="form-group">
-        <input type="submit" value="Delete" class="btn btn-danger" />
-    </div>
-    <div class="alert alert-danger" role="alert">
-        Are you sure? This is permanent.
-    </div>
+    @{
+        if (isAdmin == true)
+        {
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+            </div>
+            <div class="alert alert-danger" role="alert">
+                Are you sure? This is permanent.
+            </div>
+        }
+        else
+        {
+            <p>You're not an Admin, how did you get to this page?</p>
+        }
+    }
 </form>
 <br />
 <div>
