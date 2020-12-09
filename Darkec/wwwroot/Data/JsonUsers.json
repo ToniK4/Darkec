@@ -1,11 +1,12 @@
 {
   "1": {
     "Id": 1,
-    "Name": "It works lel",
-    "Email": "aaa",
-    "Password": "bbb",
-    "Address": "ap1.jpg",
-    "CardNumber": "ap1.jpg",
-    "TelephoneNumber": "ap1.jpg"
+    "Name": "bdbd",
+    "Email": "gah",
+    "Password": "AQAAAAEAACcQAAAAEFGLMvedFsXwPjKsvT4AtQxllIlkjCKLO+O39egOBpS1tIt+jydu3JJI2vfJVPlapw==",
+    "Address": "dbbd",
+    "CardNumber": "43",
+    "TelephoneNumber": "443",
+    "IsAdmin": true
   }
 }

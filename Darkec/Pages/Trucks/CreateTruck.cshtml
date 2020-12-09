@@ -1,6 +1,13 @@
 ﻿@page
+@using Darkec.Services
 @model Darkec.Pages.Trucks.CreateTruckModel
 @{
+    bool isAdmin = false;
+
+    if (LoginService.CurrentUser != null)
+    {
+        isAdmin = LoginService.CurrentUser.IsAdmin;
+    }
     ViewData["Title"] = "CreateTruck";
 }
 
@@ -48,6 +55,15 @@
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
+        @{
+            if (isAdmin == true)
+            {
+                <input type="submit" value="Create" class="btn btn-primary" />
+            }
+            else
+            {
+                <p>You're not an Admin, how did you get to this page.</p>
+            }
+        }
     </div>
 </form>

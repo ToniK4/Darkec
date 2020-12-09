@@ -1,6 +1,13 @@
 ﻿@page
+@using Darkec.Services
 @model Darkec.Pages.Boats.CreateBoatModel
 @{
+    bool isAdmin = false;
+
+    if (LoginService.CurrentUser != null)
+    {
+        isAdmin = LoginService.CurrentUser.IsAdmin;
+    }
     ViewData["Title"] = "CreateBoat";
 }
 
@@ -17,10 +24,10 @@
         <span asp-validation-for="@Model.Boat.RegistrationNumber" class="text-danger"></span>
     </div>
     @*<div class="form-group"> Just need to implement the enum dropdown list
-        <label asp-for="@Model.Boat.LicenseCategory" class="control-label"> License Category </label>
-        <input asp-for="@Model.Boat.LicenseCategory" class="form-control" />
-        <span asp-validation-for="@Model.Boat.LicenseCategory" class="text-danger"></span>
-    </div>*@
+            <label asp-for="@Model.Boat.LicenseCategory" class="control-label"> License Category </label>
+            <input asp-for="@Model.Boat.LicenseCategory" class="form-control" />
+            <span asp-validation-for="@Model.Boat.LicenseCategory" class="text-danger"></span>
+        </div>*@
     <div class="form-group">
         <label asp-for="@Model.Boat.SeatingCapacity" class="control-label"> Seating Capacity </label>
         <input asp-for="@Model.Boat.SeatingCapacity" class="form-control" />
@@ -58,6 +65,15 @@
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
+        @{
+            if (isAdmin == true)
+            {
+                <input type="submit" value="Create" class="btn btn-primary" />
+            }
+            else
+            {
+                <p>You're not an Admin, how did you get to this page?</p>
+            }
+        }
     </div>
 </form>
