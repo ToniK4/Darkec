@@ -29,12 +29,14 @@ namespace Darkec.Pages.Apartments
         {
             Apartment = repo.GetObject(id);
             repo.BookObject(LoginModel.CurrentUser, Apartment);
+            //Order.AddApartmentToOrder(Apartment);
             return Page();
         }
         public IActionResult OnPostCancel(int id)
         {
             Apartment = repo.GetObject(id);
             repo.CancelObject(LoginModel.CurrentUser, Apartment);
+            //Order.RemoveApartmentFromOrder(Apartment);
             return Page();
         }
     }

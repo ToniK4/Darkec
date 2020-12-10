@@ -18,5 +18,25 @@
     "CardNumber": "Toni",
     "TelephoneNumber": "Toni",
     "IsAdmin": false
+  },
+  "3": {
+    "Id": 3,
+    "Name": "Toni1",
+    "Email": "Toni1",
+    "Password": "AQAAAAEAACcQAAAAECKuvfLaje33d8mTN3+r+jMRd2aaDWD7vqiFTxtaKKoqIATRhsvmawEZrb5sFwEBXg==",
+    "Address": "a",
+    "CardNumber": "a",
+    "TelephoneNumber": "a",
+    "IsAdmin": false
+  },
+  "4": {
+    "Id": 4,
+    "Name": "Alex",
+    "Email": "Alex",
+    "Password": "AQAAAAEAACcQAAAAEG8Lses4EbAjdZqWoSzVRo2567HjieVdjXbnDUIPo+nz/bSJHVY7hXDojotDL7NFhA==",
+    "Address": "a",
+    "CardNumber": "a",
+    "TelephoneNumber": "a",
+    "IsAdmin": false
   }
 }

@@ -2,7 +2,7 @@
   "1": {
     "Name": "AP1",
     "Description": "One room, one toilet, kitchen and balcony.",
-    "Price": 35.0,
+    "Price": 40.0,
     "Customer": null,
     "Id": 1,
     "ImageName": "ap1.jpg",
