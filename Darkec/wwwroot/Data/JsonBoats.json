@@ -1,0 +1,37 @@
+{
+  "1": {
+    "SeatingCapacity": "4",
+    "TopSpeed": 30,
+    "Length": 5.0,
+    "Weight": 7,
+    "RegistrationNumber": "972VD",
+    "EngineHorsepower": 70,
+    "Price": 200.0,
+    "Customer": {
+      "Id": 2,
+      "Name": "Toni",
+      "Email": "Toni",
+      "Password": "AQAAAAEAACcQAAAAECL+oamcL1HtD+Nkd1LDFnqF5IgZx1ec2yWbx/9kUePa18Fa8ofkOtBb/U61MhD3vw==",
+      "Address": "Toni",
+      "CardNumber": "Toni",
+      "TelephoneNumber": "Toni",
+      "IsAdmin": false
+    },
+    "Id": 1,
+    "ImageName": "bordo_70hp.jpg",
+    "Available": false
+  },
+  "2": {
+    "SeatingCapacity": "3",
+    "TopSpeed": 30,
+    "Length": 3.0,
+    "Weight": 33,
+    "RegistrationNumber": "ooo",
+    "EngineHorsepower": 33,
+    "Price": 33.0,
+    "Customer": null,
+    "Id": 2,
+    "ImageName": "33",
+    "Available": true
+  }
+}

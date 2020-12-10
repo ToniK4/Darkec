@@ -1,5 +1,5 @@
 ﻿@page
-@model Darkec.Pages.Apartments.DeleteApartmentModel
+@model Darkec.Pages.Boats.DeleteBoatModel
 @{
     bool isAdmin = false;
 
@@ -7,10 +7,10 @@
     {
         isAdmin = LoginModel.CurrentUser.IsAdmin;
     }
-    ViewData["Title"] = "DeleteApartment";
+    ViewData["Title"] = "DeleteBoat";
 }
 
-<h1>Delete Apartment</h1>
+<h1>Delete Boat</h1>
 
 <table class="table">
     <thead>
@@ -36,19 +36,34 @@
 
         <tr>
             <td>
-                @Model.Apartment.Id
+                @Model.Boat.Id
             </td>
             <td>
-                @Model.Apartment.Name
+                @Model.Boat.RegistrationNumber
+            </td>
+            @*<td>
+                    @Model.Boat.LicenseCategory
+                </td>*@
+            <td>
+                @Model.Boat.SeatingCapacity
             </td>
             <td>
-                @Model.Apartment.Description
+                @Model.Boat.TopSpeed
             </td>
             <td>
-                @Model.Apartment.Price
+                @Model.Boat.EngineHorsepower
             </td>
             <td>
-                <img src="~/Images/Apartments/@Model.Apartment.ImageName" width="60" height="70">
+                @Model.Boat.Length
+            </td>
+            <td>
+                @Model.Boat.Weight
+            </td>
+            <td>
+                @Model.Boat.Price
+            </td>
+            <td>
+                <img src="~/Images/Boats/@Model.Boat.ImageName" width="60" height="70">
             </td>
         </tr>
     </tbody>
@@ -73,5 +88,5 @@
 </form>
 <br />
 <div>
-    <a class="btn btn-primary" asp-page="GetAllApartments">I changed my mind</a>
+    <a class="btn btn-primary" asp-page="GetAllBoats">I changed my mind</a>
 </div>

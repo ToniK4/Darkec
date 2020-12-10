@@ -1,46 +1,6 @@
-﻿.checked {
-    color: orange;
-}
-
-.fa-star {
-    cursor: pointer;
-}
-
+﻿
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-/*.card-columns .card:hover .card-img {
-    opacity: 1;
-}
-
-.card-columns .card-body {
-    height: 100px;
-    font-family: 'Karla', sans-serif;
-    background: #fbfafd;
-}
-
-.card-columns .card-img {
-    height: 330px;
-    vertical-align: bottom;
-    background-position: center;*/ /* Center the image */
-    /*background-repeat: no-repeat;*/ /* Do not repeat the image */
-    /*background-size: cover;*/ /* Resize the background image to cover the entire container */
-    /*opacity: .8;
-}
-
-.modal .card-img {
-    height: 500px;
-    vertical-align: bottom;
-    background-position: center;*/ /* Center the image */
-    /*background-repeat: no-repeat;*/ /* Do not repeat the image */
-    /*background-size: cover;*/ /* Resize the background image to cover the entire container */
-/*}
-
-.card-columns .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(37,33,82,.12), 0 4px 8px rgba(37,33,82,.06);
-}*/
-
-
 a.navbar-brand {
     white-space: normal;
     font-family: 'Karla', sans-serif;
@@ -55,7 +15,8 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-    color: #0366d6;
+    color: #61b8ff;
+    font-family: 'Karla';
 }
 
 .btn-primary {
@@ -113,8 +74,8 @@ html {
 body {
     /*Margin bottom by footer height*/
     margin-bottom: 60px;
-    
 }
+
     body::after {
         content: "";
         background-image: url('../Images/tribunj.jpg');
@@ -128,6 +89,7 @@ body {
         z-index: -1;
         margin-bottom: 60px
     }
+
 
 p {
     font-family: 'Karla', sans-serif;
@@ -166,10 +128,112 @@ ul {
     box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
-    margin: 80px 20px 40px 20px;
+    margin: 10px 20px 20px 20px;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+}
+.button_placement {
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-rows: auto;
+    margin: 0 auto;
+}
+.card_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 5rem;
+}
+.wrapper {
+    margin: 20px 0;
+    width: 100%;
+    padding-top: 20px;
+}
+
+    .wrapper .cards_wrap {
+        display: block;
+        flex-wrap: wrap;
+    }
+
+.cards_wrap .card_item {
+    width: 90%;
+}
+
+    .cards_wrap .card_item:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+
+
+
+.cards_wrap .card_inner {
+    background: #ffffff;
+}
+
+
+
+
+.cards_wrap .card_top {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.cards_wrap .card_bottom {
+    padding: 15px;
+}
+
+    .cards_wrap .card_bottom .card_category {
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+.card_image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+.search_container {
+    float: right;
+}
+
+.search_title {
+    font-size: 20px;
+    color: #61b8ff;
+}
+
+.search_input {
+    width: 120%;
+    padding: 12px 24px;
+    background-color: transparent;
+    transition: transform 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+    color: #575756;
+    background-color: transparent;
+    background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg);
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 95% center;
+    border-radius: 50px;
+    border: 1px solid #575756;
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.search_container :focus {
+    padding: 12px 0;
+    outline: 0;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #575756;
+    border-radius: 0;
+    background-position: 100% center;
 }

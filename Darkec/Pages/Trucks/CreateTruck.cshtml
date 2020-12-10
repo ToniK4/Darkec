@@ -1,0 +1,68 @@
+﻿@page
+@model Darkec.Pages.Trucks.CreateTruckModel
+@{
+    bool isAdmin = false;
+
+    if (LoginModel.CurrentUser != null)
+    {
+        isAdmin = LoginModel.CurrentUser.IsAdmin;
+    }
+    ViewData["Title"] = "CreateTruck";
+}
+
+<h1>Create Truck</h1>
+
+<form method="post">
+
+    <div>
+        <p>Id is automatically generated</p>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Truck.RegistrationNumber" class="control-label"> Registration Number </label>
+        <input asp-for="@Model.Truck.RegistrationNumber" class="form-control" />
+        <span asp-validation-for="@Model.Truck.RegistrationNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Truck.Length" class="control-label">Length</label>
+        <input asp-for="@Model.Truck.Length" class="form-control" />
+        <span asp-validation-for="@Model.Truck.Length" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Truck.Width" class="control-label">Width</label>
+        <input asp-for="@Model.Truck.Width" class="form-control" />
+        <span asp-validation-for="@Model.Truck.Width" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Truck.Height" class="control-label">Height</label>
+        <input asp-for="@Model.Truck.Height" class="form-control" />
+        <span asp-validation-for="@Model.Truck.Height" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Truck.CarryingWeight" class="control-label">Carrying Weight</label>
+        <input asp-for="@Model.Truck.CarryingWeight" class="form-control" />
+        <span asp-validation-for="@Model.Truck.CarryingWeight" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Truck.EngineHorsepower" class="control-label">Engine Horsepower</label>
+        <input asp-for="@Model.Truck.EngineHorsepower" class="form-control" />
+        <span asp-validation-for="@Model.Truck.EngineHorsepower" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Truck.ImageName" class="control-label"> Image Name </label>
+        <input asp-for="@Model.Truck.ImageName" class="form-control" />
+        <span asp-validation-for="@Model.Truck.ImageName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        @{
+            if (isAdmin == true)
+            {
+                <input type="submit" value="Create" class="btn btn-primary" />
+            }
+            else
+            {
+                <p>You're not an Admin, how did you get to this page.</p>
+            }
+        }
+    </div>
+</form>

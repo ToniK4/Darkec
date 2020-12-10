@@ -1,5 +1,5 @@
 ﻿@page
-@model Darkec.Pages.Apartments.GetAllApartmentsModel
+@model Darkec.Pages.Trucks.GetAllTrucksModel
 @{
     bool isAdmin = false;
 
@@ -7,18 +7,19 @@
     {
         isAdmin = LoginModel.CurrentUser.IsAdmin;
     }
-    ViewData["Title"] = "GetAllApartments";
+    ViewData["Title"] = "GetAllTrucks";
 }
-<h1>Apartments</h1>
+<h1>Trucks</h1>
 
 <p>
     @{
         if (isAdmin == true)
         {
-            <a class="btn btn-primary" asp-page="CreateApartment">Create New Apartment</a>
+            <a class="btn btn-primary" asp-page="CreateTruck">Create New Truck</a>
         }
     }
 </p>
+
 <form>
     <div class="search_container">
         <div class="search_title">
@@ -28,7 +29,6 @@
     </div>
 </form>
 
-
 <table class="table">
     <thead>
         <tr>
@@ -36,13 +36,13 @@
                 Image
             </th>
             <th>
-                Name
+                Registration Number
             </th>
             <th>
-                Description
+                Carrying Weight
             </th>
             <th>
-                Price
+                Height
             </th>
 
             <th>
@@ -55,22 +55,22 @@
     </thead>
     <tbody>
 
-        @foreach (var item in Model.Apartments)
+        @foreach (var item in Model.Trucks)
         {
             <tr>
                 <td>
-                    <a asp-page="GetApartment" asp-route-id="@item.Key">
-                        <img src="~/Images/Apartments/@item.Value.ImageName" width="180" height="150">
+                    <a asp-page="GetTruck" asp-route-id="@item.Key">
+                        <img src="~/Images/Trucks/@item.Value.ImageName" width="180" height="150">
                     </a>
                 </td>
                 <td>
-                    @item.Value.Name
+                    @item.Value.RegistrationNumber
                 </td>
                 <td>
-                    @item.Value.Description
+                    @item.Value.CarryingWeight
                 </td>
                 <td>
-                    @item.Value.Price EUR
+                    @item.Value.Height
                 </td>
 
                 <td>
@@ -78,11 +78,11 @@
                         @{
                             if (isAdmin == true)
                             {
-                                <a class="btn btn-primary" asp-page="UpdateApartment" asp-route-id="@item.Key">Edit</a>
+                                <a class="btn btn-primary" asp-page="UpdateTruck" asp-route-id="@item.Key">Edit</a>
                             }
                             else
                             {
-                                <a class="btn btn-primary" asp-page="GetApartment" asp-route-id="@item.Key">View</a>
+                                <a class="btn btn-primary" asp-page="GetTruck" asp-route-id="@item.Key">View</a>
                             }
                         }
                     </p>
@@ -92,7 +92,7 @@
                         @{
                             if (isAdmin == true)
                             {
-                                <a class="btn btn-danger" asp-page="DeleteApartment" asp-route-id="@item.Key">Delete</a>
+                                <a class="btn btn-danger" asp-page="DeleteTruck" asp-route-id="@item.Key">Delete</a>
                             }
                         }
                     </p>

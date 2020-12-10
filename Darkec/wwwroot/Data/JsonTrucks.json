@@ -1,0 +1,12 @@
+{
+  "1": {
+    "Id": 1,
+    "RegistrationNumber": "323",
+    "Length": 33.0,
+    "Width": 33.0,
+    "Height": 33.0,
+    "CarryingWeight": 33,
+    "EngineHorsepower": 33,
+    "ImageName": "orange.jpg"
+  }
+}

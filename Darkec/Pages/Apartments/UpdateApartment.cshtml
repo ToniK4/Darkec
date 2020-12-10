@@ -1,6 +1,12 @@
 ﻿@page
 @model Darkec.Pages.Apartments.UpdateApartmentModel
 @{
+    bool isAdmin = false;
+
+    if (LoginModel.CurrentUser != null)
+    {
+        isAdmin = LoginModel.CurrentUser.IsAdmin;
+    }
     ViewData["Title"] = "Edit Apartment";
 }
 
@@ -14,7 +20,7 @@
                 Id cannot be changed
             </text>
         </label>
-        <input hidden="hidden" asp-for="@Model.Apartment.Id" class="form-control"/>
+        <input hidden="hidden" asp-for="@Model.Apartment.Id" class="form-control" />
         <span asp-validation-for="@Model.Apartment.Id" class="text-danger"></span>
     </div>
     <div class="form-group">
@@ -38,6 +44,15 @@
         <span asp-validation-for="@Model.Apartment.ImageName" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <input type="submit" value="Save" class="btn btn-primary" />
+        @{
+            if (isAdmin == true)
+            {
+                <input type="submit" value="Save" class="btn btn-primary" />
+            }
+            else
+            {
+                <p>You're not an Admin, how did you get to this page?</p>
+            }
+        }
     </div>
 </form>

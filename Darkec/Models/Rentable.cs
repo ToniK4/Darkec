@@ -5,12 +5,10 @@ using System.Threading.Tasks;
 
 namespace Darkec.Models
 {
-    public class Admin
+    public abstract class Rentable
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-
+        public string ImageName { get; set; }
+        public bool Available { get; set; }
     }
 }

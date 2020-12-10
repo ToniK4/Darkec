@@ -1,4 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@using Darkec.Services
+@{
+    string Name;
+
+    if (LoginModel.CurrentUser == null)
+    {
+        Name = "Unknown User";
+    }
+    else
+    {
+        Name = LoginModel.CurrentUser.Name;
+    }
+
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,6 +39,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-page="/Services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <p>Welcome @Name</p>
                         </li>
                     </ul>
                 </div>

@@ -1,6 +1,12 @@
 ﻿@page
 @model Darkec.Pages.Apartments.CreateApartmentModel
 @{
+    bool isAdmin = false;
+
+    if (LoginModel.CurrentUser != null)
+    {
+        isAdmin = LoginModel.CurrentUser.IsAdmin;
+    }
     ViewData["Title"] = "CreateApartment";
 }
 
@@ -8,16 +14,13 @@
 
 <form method="post">
 
-    <div class="form-group">
-        <label asp-for="@Model.Apartment.Id" class="control-label"> Id </label>
-        <input asp-for="@Model.Apartment.Id" class="form-control" />
-        <span asp-validation-for="@Model.Apartment.Id" class="text-danger"></span>
+    <div>
+        <p>Id is automatically generated</p>
     </div>
     <div class="form-group">
         <label asp-for="@Model.Apartment.Name" class="control-label">Name </label>
         <input asp-for="@Model.Apartment.Name" class="form-control" />
         <span asp-validation-for="@Model.Apartment.Name" class="text-danger"></span>
-
     </div>
     <div class="form-group">
         <label asp-for="@Model.Apartment.Description" class="control-label">Description</label>
@@ -36,6 +39,15 @@
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
+        @{
+            if (isAdmin == true)
+            {
+                <input type="submit" value="Create" class="btn btn-primary" />
+            }
+            else
+            {
+                <p>You're not an Admin, how did you get to this page?</p>
+            }
+        }
     </div>
 </form>
