@@ -2,41 +2,11 @@
   "1": {
     "Id": 1,
     "Name": "Admin",
-    "Email": "gah",
-    "Password": "AQAAAAEAACcQAAAAEFGLMvedFsXwPjKsvT4AtQxllIlkjCKLO+O39egOBpS1tIt+jydu3JJI2vfJVPlapw==",
-    "Address": "Town way 34",
-    "CardNumber": "",
-    "TelephoneNumber": "",
+    "Email": "Admin@Admin.Admin",
+    "Password": "AQAAAAEAACcQAAAAECyQxoYNZQbrw/H2qczZD6JLQ6q/RXldbPOu6CuO+MXLwRaFgIYx/qZqi5Q7VIkvqA==",
+    "Address": "Admin",
+    "CardNumber": "Admin",
+    "TelephoneNumber": "Admin",
     "IsAdmin": true
-  },
-  "2": {
-    "Id": 2,
-    "Name": "Toni",
-    "Email": "Toni",
-    "Password": "AQAAAAEAACcQAAAAECL+oamcL1HtD+Nkd1LDFnqF5IgZx1ec2yWbx/9kUePa18Fa8ofkOtBb/U61MhD3vw==",
-    "Address": "Toni",
-    "CardNumber": "Toni",
-    "TelephoneNumber": "Toni",
-    "IsAdmin": false
-  },
-  "3": {
-    "Id": 3,
-    "Name": "Toni1",
-    "Email": "Toni1",
-    "Password": "AQAAAAEAACcQAAAAECKuvfLaje33d8mTN3+r+jMRd2aaDWD7vqiFTxtaKKoqIATRhsvmawEZrb5sFwEBXg==",
-    "Address": "a",
-    "CardNumber": "a",
-    "TelephoneNumber": "a",
-    "IsAdmin": false
-  },
-  "4": {
-    "Id": 4,
-    "Name": "Alex",
-    "Email": "Alex",
-    "Password": "AQAAAAEAACcQAAAAEG8Lses4EbAjdZqWoSzVRo2567HjieVdjXbnDUIPo+nz/bSJHVY7hXDojotDL7NFhA==",
-    "Address": "a",
-    "CardNumber": "a",
-    "TelephoneNumber": "a",
-    "IsAdmin": false
   }
 }

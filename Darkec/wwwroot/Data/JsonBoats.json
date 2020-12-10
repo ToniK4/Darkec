@@ -26,12 +26,12 @@
     "TopSpeed": 30,
     "Length": 3.0,
     "Weight": 33,
-    "RegistrationNumber": "ooo",
+    "RegistrationNumber": "321VD",
     "EngineHorsepower": 33,
     "Price": 33.0,
     "Customer": null,
     "Id": 2,
-    "ImageName": "33",
+    "ImageName": "open_60hp.jpg",
     "Available": true
   }
 }

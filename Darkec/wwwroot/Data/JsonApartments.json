@@ -6,22 +6,13 @@
     "Customer": null,
     "Id": 1,
     "ImageName": "ap1.jpg",
-    "Available": false
+    "Available": true
   },
   "2": {
     "Name": "AP2",
     "Description": "One room, one toilet, kitchen and balcony.",
     "Price": 40.0,
-    "Customer": {
-      "Id": 2,
-      "Name": "Toni",
-      "Email": "Toni",
-      "Password": "AQAAAAEAACcQAAAAECL+oamcL1HtD+Nkd1LDFnqF5IgZx1ec2yWbx/9kUePa18Fa8ofkOtBb/U61MhD3vw==",
-      "Address": "Toni",
-      "CardNumber": "Toni",
-      "TelephoneNumber": "Toni",
-      "IsAdmin": false
-    },
+    "Customer": null,
     "Id": 2,
     "ImageName": "ap2.jpg",
     "Available": false

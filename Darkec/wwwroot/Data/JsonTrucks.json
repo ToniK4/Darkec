@@ -8,5 +8,15 @@
     "CarryingWeight": 33,
     "EngineHorsepower": 33,
     "ImageName": "orange.jpg"
+  },
+  "2": {
+    "Id": 2,
+    "RegistrationNumber": "444",
+    "Length": 44.0,
+    "Width": 44.0,
+    "Height": 44.0,
+    "CarryingWeight": 44,
+    "EngineHorsepower": 44,
+    "ImageName": "yellow.jpg"
   }
 }

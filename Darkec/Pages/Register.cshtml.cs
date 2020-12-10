@@ -31,6 +31,10 @@ namespace Darkec.Pages
 
         public IActionResult OnPost()
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             foreach (var user in repo.GetAllObjects().Values)
             {
                 if (user.Email == NewUser.Email)

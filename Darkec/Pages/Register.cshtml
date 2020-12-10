@@ -35,11 +35,17 @@
             <form method="post">
                 <div class="form-group">
                     <input type="text" asp-for="@Model.NewUser.Email" id="login" class="fadeIn second" placeholder="e-mail">
+                    <span asp-validation-for="@Model.NewUser.Email" class="text-danger"></span>
                     <input type="text" asp-for="@Model.NewUser.Password" id="password" class="fadeIn third" placeholder="password">
+                    <span asp-validation-for="@Model.NewUser.Password" class="text-danger"></span>
                     <input type="text" asp-for="@Model.NewUser.Name" id="name" class="fadeIn third" placeholder="name">
+                    <span asp-validation-for="@Model.NewUser.Name" class="text-danger"></span>
                     <input type="text" asp-for="@Model.NewUser.Address" id="address" class="fadeIn third" placeholder="address">
+                    <span asp-validation-for="@Model.NewUser.Address" class="text-danger"></span>
                     <input type="text" asp-for="@Model.NewUser.CardNumber" id="card number" class="fadeIn third" placeholder="card number">
+                    <span asp-validation-for="@Model.NewUser.CardNumber" class="text-danger"></span>
                     <input type="text" asp-for="@Model.NewUser.TelephoneNumber" id="telephone number" class="fadeIn third" placeholder="telephone number">
+                    <span asp-validation-for="@Model.NewUser.TelephoneNumber" class="text-danger"></span>
 
                     <input type="submit" class="fadeIn fourth" value="Sign Up">
                 </div>
