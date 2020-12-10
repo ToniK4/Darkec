@@ -92,5 +92,20 @@ namespace Darkec.Services.Apartments
             }
             return apartment;
         }
+        public void BookObject(User user, Apartment apartment)
+        {
+            apartment.Available = false;
+            apartment.Customer = user;
+            JsonFileWriter<int, Apartment>.WriteToJson(apartments, JsonFileName);
+        }
+        public void CancelObject(User user, Apartment apartment)
+        {
+            if (apartment.Customer == user)
+            {
+                apartment.Available = true;
+                apartment.Customer = null;
+                JsonFileWriter<int, Apartment>.WriteToJson(apartments, JsonFileName);
+            }
+        }
     }
 }

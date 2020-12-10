@@ -1,12 +1,11 @@
 ﻿@page
-@using Darkec.Services
 @model Darkec.Pages.Trucks.CreateTruckModel
 @{
     bool isAdmin = false;
 
-    if (LoginService.CurrentUser != null)
+    if (LoginModel.CurrentUser != null)
     {
-        isAdmin = LoginService.CurrentUser.IsAdmin;
+        isAdmin = LoginModel.CurrentUser.IsAdmin;
     }
     ViewData["Title"] = "CreateTruck";
 }

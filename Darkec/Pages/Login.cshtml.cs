@@ -16,6 +16,7 @@ namespace Darkec.Pages
 {
     public class LoginModel : PageModel
     {
+        public static User CurrentUser { get; set; }
         [BindProperty] public string Email { get; set; }
         [BindProperty] public string Password { get; set; }
 
@@ -35,19 +36,19 @@ namespace Darkec.Pages
         {
             foreach (var user in repo.GetAllObjects().Values)
             {
-                if (CheckLogin())
-                {
-                    LoginService.CurrentUser = user;
-                    return RedirectToPage("Index");
-                }
+                CurrentUser = CheckLogin();
+                break;
             }
-
+            if (CurrentUser != null)
+            {
+                return RedirectToPage("Index");
+            }
             return Page();
         }
 
-        private bool CheckLogin()
+        private User CheckLogin()
         {
-            bool validUser = userRepository.CheckPassword(Email, Password);
+            User validUser = userRepository.CheckedUser(Email, Password);
             return validUser;
         }
     }

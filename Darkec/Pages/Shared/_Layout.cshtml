@@ -1,11 +1,16 @@
 ﻿@using Darkec.Services
 @{
-    string Name = "Unknown User";
-    
-    if (LoginService.CurrentUser != null)
+    string Name;
+
+    if (LoginModel.CurrentUser == null)
     {
-        Name = LoginService.CurrentUser.Name;
+        Name = "Unknown User";
     }
+    else
+    {
+        Name = LoginModel.CurrentUser.Name;
+    }
+
 }
 <!DOCTYPE html>
 <html lang="en">

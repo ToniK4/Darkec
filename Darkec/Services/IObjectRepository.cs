@@ -15,5 +15,7 @@ namespace Darkec.Services
         public void DeleteObject(Value value);
         public Dictionary<Key, Value> FilterObjects(string objectName);
         public Value AutoIncrementId(Value value);
+        public void BookObject(User user, Value value);
+        public void CancelObject(User user, Value value);
     }
 }

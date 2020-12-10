@@ -1,12 +1,11 @@
 ﻿@page
-@using Darkec.Services
 @model Darkec.Pages.Apartments.GetAllApartmentsModel
 @{
     bool isAdmin = false;
 
-    if (LoginService.CurrentUser != null)
+    if (LoginModel.CurrentUser != null)
     {
-        isAdmin = LoginService.CurrentUser.IsAdmin;
+        isAdmin = LoginModel.CurrentUser.IsAdmin;
     }
     ViewData["Title"] = "GetAllApartments";
 }
@@ -27,7 +26,6 @@
 
     </div>
 </div>
-
 
 <table class="table">
     <thead>
@@ -54,11 +52,14 @@
         </tr>
     </thead>
     <tbody>
+
         @foreach (var item in Model.Apartments)
         {
             <tr>
                 <td>
-                    <img src="~/Images/Apartments/@item.Value.ImageName" width="180" height="150">
+                    <a asp-page="GetApartment" asp-route-id="@item.Key">
+                        <img src="~/Images/Apartments/@item.Value.ImageName" width="180" height="150">
+                    </a>
                 </td>
                 <td>
                     @item.Value.Name
@@ -76,6 +77,10 @@
                             if (isAdmin == true)
                             {
                                 <a class="btn btn-primary" asp-page="UpdateApartment" asp-route-id="@item.Key">Edit</a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-primary" asp-page="GetApartment" asp-route-id="@item.Key">View</a>
                             }
                         }
                     </p>
