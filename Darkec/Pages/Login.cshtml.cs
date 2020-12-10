@@ -41,7 +41,7 @@ namespace Darkec.Pages
             }
             if (CurrentUser != null)
             {
-                return RedirectToPage("Index");
+                return RedirectToPage("Services");
             }
             return Page();
         }

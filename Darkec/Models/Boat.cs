@@ -13,6 +13,7 @@ namespace Darkec.Models
         [Required]
         public string SeatingCapacity { get; set; }
         public enum LicenseCategory { A, B, C, M }
+        public LicenseCategory Category { get; set; }
         [Range(0,200)]
         public int TopSpeed { get; set; }
         [Range(0,10)]
