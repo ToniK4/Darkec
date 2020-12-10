@@ -39,7 +39,7 @@ namespace Darkec.Pages
                 }
             }
             repo.AddObject(NewUser);
-            return RedirectToPage("Index");
+            return RedirectToPage("Login");
         }
     }
 }

@@ -1,0 +1,54 @@
+﻿@page
+@model Darkec.Pages.Trucks.GetTruckModel
+@{
+    ViewData["Title"] = "GetTruck";
+}
+<h1>Get Truck</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Image
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                @Model.Truck.Id
+            </td>
+            <td>
+                @Model.Truck.RegistrationNumber
+            </td>
+            <td>
+                @Model.Truck.CarryingWeight
+            </td>
+            <td>
+                @Model.Truck.Height
+            </td>
+            <td>
+                <img src="~/Images/Trucks/@Model.Truck.ImageName" width="60" height="70">
+            </td>
+        </tr>
+    </tbody>
+</table>
+<img src="~/Images/Trucks/@Model.Truck.ImageName" width="800" height="600">
+<br/>
+<br/>
+<div>
+    <a class="btn btn-primary" asp-page="GetAllTrucks">Back to All Trucks</a>
+</div>

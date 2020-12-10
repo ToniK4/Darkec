@@ -1,23 +1,38 @@
 {
   "1": {
-    "Id": 1,
     "Name": "AP1",
     "Description": "One room, one toilet, kitchen and balcony.",
     "Price": 35.0,
-    "ImageName": "ap1.jpg"
+    "Customer": null,
+    "Id": 1,
+    "ImageName": "ap1.jpg",
+    "Available": false
   },
   "2": {
-    "Id": 2,
     "Name": "AP2",
     "Description": "One room, one toilet, kitchen and balcony.",
     "Price": 40.0,
-    "ImageName": "ap2.jpg"
+    "Customer": {
+      "Id": 2,
+      "Name": "Toni",
+      "Email": "Toni",
+      "Password": "AQAAAAEAACcQAAAAECL+oamcL1HtD+Nkd1LDFnqF5IgZx1ec2yWbx/9kUePa18Fa8ofkOtBb/U61MhD3vw==",
+      "Address": "Toni",
+      "CardNumber": "Toni",
+      "TelephoneNumber": "Toni",
+      "IsAdmin": false
+    },
+    "Id": 2,
+    "ImageName": "ap2.jpg",
+    "Available": false
   },
   "3": {
-    "Id": 3,
     "Name": "AP3",
     "Description": "Studio apartment.",
     "Price": 30.0,
-    "ImageName": "ap3.jpg"
+    "Customer": null,
+    "Id": 3,
+    "ImageName": "ap3.jpg",
+    "Available": true
   }
 }

@@ -99,24 +99,36 @@ namespace Darkec.Services.Users
             string passwordHashed = pw.HashPassword(userName, password);
             return passwordHashed;
         }
-        public bool CheckPassword(string email, string password)
+        public User CheckedUser(string email, string password)
         {
-            bool loggedIn = false;
-            foreach (var v in users.Values)
+            User user = null;
+            foreach (var User in users.Values)
             {
-                if (v.Email == email)
+                if (User.Email == email)
                 {
-                    string jsonPassword = v.Password;
+                    string jsonPassword = User.Password;
                     PasswordHasher<string> pw = new PasswordHasher<string>();
                     var verificationResult = pw.VerifyHashedPassword(email, jsonPassword, password);
                     if (verificationResult == PasswordVerificationResult.Success)
-                        loggedIn = true;
-                    else
-                        loggedIn = false;
-                    return loggedIn;
+                    {
+                        user = User;
+                    }
+                    
+                    return user;
                 }
             }
-            return loggedIn;
+            return user;
+        }
+
+        //Two methods that don't have implementation but are here since this class inherits the IObjectRepository interface.
+        //This could be solved by having the class not implement the interface but that comes with its own complications.
+        public void BookObject(User user1, User user2)
+        {
+
+        }
+        public void CancelObject(User user1, User user2)
+        {
+
         }
     }
 }

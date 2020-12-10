@@ -1,12 +1,22 @@
 {
   "1": {
     "Id": 1,
-    "Name": "bdbd",
+    "Name": "Admin",
     "Email": "gah",
     "Password": "AQAAAAEAACcQAAAAEFGLMvedFsXwPjKsvT4AtQxllIlkjCKLO+O39egOBpS1tIt+jydu3JJI2vfJVPlapw==",
-    "Address": "dbbd",
-    "CardNumber": "43",
-    "TelephoneNumber": "443",
+    "Address": "Town way 34",
+    "CardNumber": "",
+    "TelephoneNumber": "",
     "IsAdmin": true
+  },
+  "2": {
+    "Id": 2,
+    "Name": "Toni",
+    "Email": "Toni",
+    "Password": "AQAAAAEAACcQAAAAECL+oamcL1HtD+Nkd1LDFnqF5IgZx1ec2yWbx/9kUePa18Fa8ofkOtBb/U61MhD3vw==",
+    "Address": "Toni",
+    "CardNumber": "Toni",
+    "TelephoneNumber": "Toni",
+    "IsAdmin": false
   }
 }

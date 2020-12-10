@@ -89,5 +89,16 @@ namespace Darkec.Services.Trucks
             }
             return truck;
         }
+
+        //Two methods that don't have implementation but are here since this class inherits the IObjectRepository interface.
+        //This could be solved by having the class not implement the interface but that comes with its own complications.
+        public void BookObject(User user, Truck truck)
+        {
+            
+        }
+        public void CancelObject(User user, Truck truck)
+        {
+
+        }
     }
 }

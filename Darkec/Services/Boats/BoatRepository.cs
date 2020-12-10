@@ -89,5 +89,20 @@ namespace Darkec.Services.Boats
             }
             return boat;
         }
+        public void BookObject(User user, Boat boat)
+        {
+            boat.Available = false;
+            boat.Customer = user;
+            JsonFileWriter<int, Boat>.WriteToJson(boats, JsonFileName);
+        }
+        public void CancelObject(User user, Boat boat)
+        {
+            if (boat.Customer == user)
+            {
+                boat.Available = true;
+                boat.Customer = null;
+                JsonFileWriter<int, Boat>.WriteToJson(boats, JsonFileName);
+            }
+        }
     }
 }

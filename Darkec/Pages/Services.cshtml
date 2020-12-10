@@ -1,7 +1,6 @@
 ﻿@page
 @model Darkec.Pages.ServicesModel
-@{
-}
+@{ }
 <html>
 <head>
     <title>Services</title>
@@ -32,7 +31,9 @@
             <div class="cards_wrap">
                 <div class="card_item">
                     <div class="card_inner">
-                        <a asp-page="#">
+
+                        <a asp-page="/Boats/GetAllBoats">
+
                             <div class="card_top">
                                 <img src="Images\Boats\1082_70hp.jpg" alt="Boats" class="card_image">
                             </div>
@@ -50,7 +51,8 @@
             <div class="cards_wrap">
                 <div class="card_item">
                     <div class="card_inner">
-                        <a asp-page="#">
+
+                        <a asp-page="Trucks/GetAllTrucks">
                             <div class="card_top">
                                 <img src="Images\Trucks\yellow.jpg" alt="Towing Truck" class="card_image">
                             </div>
@@ -59,13 +61,13 @@
                                     Towing Trucks
                                 </div>
                             </div>
+
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
 
 </body>
 

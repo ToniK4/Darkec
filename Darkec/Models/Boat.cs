@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace Darkec.Models
 {
-    public class Boat
+    public class Boat : Rentable
     {
-        [Range(1,100)]
-        public int Id { get; set; }
         [StringLength(2)] //assuming that it is a 2digit number
         [Range(0,20)]
         [Required]
         public string SeatingCapacity { get; set; }
         public enum LicenseCategory { A, B, C, M }
+        public LicenseCategory Category { get; set; }
         [Range(0,200)]
         public int TopSpeed { get; set; }
         [Range(0,10)]
@@ -28,9 +27,8 @@ namespace Darkec.Models
         public int EngineHorsepower { get; set; }
         [Range(0,1000000)]
         [DataType(DataType.Currency)]
-        public decimal Price { get; set; }
-        public string ImageName { get; set; }
-        public bool Availability { get; set; }
+        public double Price { get; set; }
+        public User Customer { get; set; }
 
     }
 }

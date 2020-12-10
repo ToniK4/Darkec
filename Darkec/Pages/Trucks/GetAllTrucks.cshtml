@@ -1,12 +1,11 @@
 ﻿@page
-@using Darkec.Services
 @model Darkec.Pages.Trucks.GetAllTrucksModel
 @{
     bool isAdmin = false;
 
-    if (LoginService.CurrentUser != null)
+    if (LoginModel.CurrentUser != null)
     {
-        isAdmin = LoginService.CurrentUser.IsAdmin;
+        isAdmin = LoginModel.CurrentUser.IsAdmin;
     }
     ViewData["Title"] = "GetAllTrucks";
 }
@@ -16,17 +15,19 @@
     @{
         if (isAdmin == true)
         {
-            <a asp-page="CreateTruck">Create New Truck</a>
+            <a class="btn btn-primary" asp-page="CreateTruck">Create New Truck</a>
         }
     }
 </p>
 
-<div class="search_container">
-    <div class="search_title">
-        <input class="search_input" type="text" asp-for="FilterCriteria" placeholder="Search" /> @*submit button not implemented yet*@
+<form>
+    <div class="search_container">
+        <div class="search_title">
+            <input class="search_input" type="text" asp-for="FilterCriteria" placeholder="Search" /> @*submit button not implemented yet*@
 
+        </div>
     </div>
-</div>
+</form>
 
 <table class="table">
     <thead>
@@ -58,7 +59,9 @@
         {
             <tr>
                 <td>
-                    <img src="~/Images/Trucks/@item.Value.ImageName" width="180" height="150">
+                    <a asp-page="GetTruck" asp-route-id="@item.Key">
+                        <img src="~/Images/Trucks/@item.Value.ImageName" width="180" height="150">
+                    </a>
                 </td>
                 <td>
                     @item.Value.RegistrationNumber
@@ -76,6 +79,10 @@
                             if (isAdmin == true)
                             {
                                 <a class="btn btn-primary" asp-page="UpdateTruck" asp-route-id="@item.Key">Edit</a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-primary" asp-page="GetTruck" asp-route-id="@item.Key">View</a>
                             }
                         }
                     </p>

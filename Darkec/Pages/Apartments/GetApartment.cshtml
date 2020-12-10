@@ -1,0 +1,83 @@
+﻿@page
+@model Darkec.Pages.Apartments.GetApartmentModel
+@{
+    ViewData["Title"] = "GetApartment";
+}
+<h1>Get Apartment</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Image
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+        <td>
+            @Model.Apartment.Id
+        </td>
+        <td>
+            @Model.Apartment.Name
+        </td>
+        <td>
+            @Model.Apartment.Description
+        </td>
+        <td>
+            @Model.Apartment.Price EUR
+        </td>
+        <td>
+            <img src="~/Images/Apartments/@Model.Apartment.ImageName" width="60" height="70">
+        </td>
+    </tr>
+    </tbody>
+</table>
+<img src="~/Images/Apartments/@Model.Apartment.ImageName" width="800" height="600">
+<br/>
+@{
+    if (LoginModel.CurrentUser != null)
+    {
+        if (Model.Apartment.Customer == LoginModel.CurrentUser)
+        {
+            <form method="post" asp-page-handler="Cancel" asp-route-id="@Model.Apartment.Id">
+                <div class="form-group">
+                    <input type="submit" value="Cancel" class="btn btn-danger" />
+                </div>
+            </form>
+        }
+        else if (Model.Apartment.Available)
+        {
+            <form method="post" asp-page-handler="Book" asp-route-id="@Model.Apartment.Id">
+                <div class="form-group">
+                    <input type="submit" value="Book" class="btn btn-primary" />
+                </div>
+            </form>
+        }
+        else
+        {
+            <p class ="alert-danger">Unavailable</p>
+        }
+    }
+    else
+    {
+        <p>Log in to see options</p>
+    }
+}
+<br />
+<div>
+    <a class="btn btn-primary" asp-page="GetAllApartments">Back to All Apartments</a>
+</div>
