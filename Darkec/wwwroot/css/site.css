@@ -135,21 +135,18 @@ ul {
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
-
 .button_placement {
     display: grid;
     grid-template-columns: auto;
     grid-auto-rows: auto;
     margin: 0 auto;
 }
-
 .card_grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-rows: auto;
     grid-gap: 5rem;
 }
-
 .wrapper {
     margin: 20px 0;
     width: 100%;
